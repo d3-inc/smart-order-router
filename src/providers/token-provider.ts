@@ -821,6 +821,22 @@ export const USDC_SONEIUM = new Token(
   'Soneium Bridged USDC Soneium'
 );
 
+export const USDTEST_DOMA_SEPOLIA= new Token(
+  ChainId.DOMA_SEPOLIA,
+  '0x8725f6FDF6E240C303B4e7A60AD13267Fa04d55C',
+  6,
+  'USDCTEST',
+  'Doma Testnet Stablecoin'
+);
+
+export const USDCE_DOMA= new Token(
+  ChainId.DOMA,
+  '0x31EEf89D5215C305304a2fA5376a1f1b6C5dc477',
+  6,
+  'USDC.e',
+  'Bridged USDC (Stargate)'
+);
+
 export class TokenProvider implements ITokenProvider {
   constructor(
     private chainId: ChainId,

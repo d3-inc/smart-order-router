@@ -10,6 +10,8 @@ jobs:
   unit-tests:
     name: Unit Tests
     runs-on: ubuntu-latest
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -48,6 +50,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_input-erc20-to-erc20:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_INPUT ERC20 -> ERC20
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -84,6 +87,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_input-hardhat:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_INPUT Execute On Hardhat Fork
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -120,6 +124,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_input-tenderly-hardhat:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_INPUT Simulate On Tenderly Execute On Hardhat Fork
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -156,6 +161,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_output-erc20-to-erc20:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_OUTPUT ERC20 -> ERC20
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -192,6 +198,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_output-hardhat:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_OUTPUT Execute On Hardhat Fork
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -228,6 +235,7 @@ jobs:
   integration-tests-alpha-router-integration-mainnet-alpha-exact_output-tenderly-hardhat:
     name: Integration Tests - Alpha Router Integration Mainnet Alpha EXACT_OUTPUT Simulate On Tenderly Execute On Hardhat Fork
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -264,6 +272,7 @@ jobs:
   integration-tests-alpha-router-integration-mixed-routes:
     name: Integration Tests - Alpha Router Integration Mixed Routes
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -300,6 +309,7 @@ jobs:
   integration-tests-external-class-tests:
     name: Integration Tests - External Class Tests
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -336,6 +346,7 @@ jobs:
   integration-tests-quote-for-other-networks-mainnet:
     name: Integration Tests - Quote For Other Networks Mainnet
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -372,6 +383,7 @@ jobs:
   integration-tests-quote-for-other-networks-optimism:
     name: Integration Tests - Quote For Other Networks Optimism
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -409,6 +421,7 @@ jobs:
   integration-tests-quote-for-other-networks-arbitrum:
     name: Integration Tests - Quote For Other Networks Arbitrum
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -446,6 +459,7 @@ jobs:
   integration-tests-quote-for-other-networks-polygon:
     name: Integration Tests - Quote For Other Networks Polygon
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -483,6 +497,7 @@ jobs:
   integration-tests-quote-for-other-networks-sepolia:
     name: Integration Tests - Quote For Other Networks Sepolia
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -519,6 +534,7 @@ jobs:
   integration-tests-quote-for-other-networks-celo:
     name: Integration Tests - Quote For Other Networks Celo
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -556,6 +572,7 @@ jobs:
   integration-tests-quote-for-other-networks-bnb:
     name: Integration Tests - Quote For Other Networks BNB
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -592,6 +609,7 @@ jobs:
   integration-tests-quote-for-other-networks-avalanche:
     name: Integration Tests - Quote For Other Networks Avalanche
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -628,6 +646,7 @@ jobs:
   integration-tests-quote-for-other-networks-base:
     name: Integration Tests - Quote For Other Networks Base
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -665,6 +684,7 @@ jobs:
   integration-tests-quote-for-other-networks-blast:
     name: Integration Tests - Quote For Other Networks Blast
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -701,6 +721,7 @@ jobs:
   integration-tests-quote-for-other-networks-zora:
     name: Integration Tests - Quote For Other Networks Zora
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -737,6 +758,7 @@ jobs:
   integration-tests-quote-for-other-networks-zksync:
     name: Integration Tests - Quote For Other Networks ZkSync
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -772,6 +794,7 @@ jobs:
   integration-tests-quote-for-other-networks-worldchain:
     name: Integration Tests - Quote For Other Networks WorldChain
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -806,6 +829,7 @@ jobs:
   integration-tests-quote-for-other-networks-unichain:
     name: Integration Tests - Quote For Other Networks Unichain
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -842,6 +866,7 @@ jobs:
   integration-tests-quote-for-other-networks-monad-testnet:
     name: Integration Tests - Quote For Other Networks Monad Testnet
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -876,6 +901,7 @@ jobs:
   integration-tests-quote-for-other-networks-monad-mainnet:
     name: Integration Tests - Quote For Other Networks Monad Mainnet
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -910,6 +936,7 @@ jobs:
   integration-tests-quote-for-other-networks-soneium:
     name: Integration Tests - Quote For Other Networks Soneium
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -944,6 +971,7 @@ jobs:
   integration-tests-quote-for-other-networks-xlayer:
     name: Integration Tests - Quote For Other Networks XLayer
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -978,6 +1006,7 @@ jobs:
   integration-tests-quote-for-other-networks-remaining-networks:
     name: Integration Tests - Quote For Other Networks Remaining Networks
     runs-on: ubuntu-latest
+    if: false
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3

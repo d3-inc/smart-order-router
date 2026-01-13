@@ -906,6 +906,34 @@ export class AlphaRouter
             (_) => BLOCK_NUMBER_CONFIGS[chainId]!
           );
           break;
+        case ChainId.DOMA_SEPOLIA:
+        case ChainId.DOMA:
+           this.onChainQuoteProvider = new OnChainQuoteProvider(
+            chainId,
+            provider,
+            this.multicall2Provider,
+            DEFAULT_RETRY_OPTIONS,
+             (_) => {
+              return {
+                multicallChunk: 10,
+                gasLimitPerCall: 5_000_000,
+                quoteMinSuccessRate: 0.1,
+              };
+            },
+            (_) => {
+              return {
+                gasLimitOverride: 5_000_000,
+                multicallChunk: 5,
+              };
+            },
+            (_) => {
+              return {
+                gasLimitOverride: 6_250_000,
+                multicallChunk: 4,
+              };
+            }
+          );
+          break;
         default:
           this.onChainQuoteProvider = new OnChainQuoteProvider(
             chainId,

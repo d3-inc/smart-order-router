@@ -24,6 +24,7 @@ import {
   ETH_BNB,
   OP_OPTIMISM,
   USDB_BLAST,
+  USDCE_DOMA,
   USDCE_ZKSYNC,
   USDC_ARBITRUM,
   USDC_AVAX,
@@ -42,6 +43,7 @@ import {
   USDC_WORLDCHAIN,
   USDC_XLAYER,
   USDC_ZKSYNC,
+  USDTEST_DOMA_SEPOLIA,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_MAINNET,
@@ -197,6 +199,16 @@ export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
     nativeOnChain(ChainId.XLAYER),
     WRAPPED_NATIVE_CURRENCY[ChainId.XLAYER]!,
     USDC_XLAYER,
+  ],
+  [ChainId.DOMA_SEPOLIA]: [
+    nativeOnChain(ChainId.DOMA_SEPOLIA),
+    WRAPPED_NATIVE_CURRENCY[ChainId.DOMA_SEPOLIA]!,
+    USDTEST_DOMA_SEPOLIA,
+  ],
+  [ChainId.DOMA]: [
+    nativeOnChain(ChainId.DOMA),
+    WRAPPED_NATIVE_CURRENCY[ChainId.DOMA]!,
+    USDCE_DOMA,
   ],
 };
 

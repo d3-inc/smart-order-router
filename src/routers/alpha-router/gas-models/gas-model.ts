@@ -24,6 +24,7 @@ import {
   DAI_UNICHAIN,
   DAI_ZKSYNC,
   USDB_BLAST,
+  USDCE_DOMA,
   USDCE_ZKSYNC,
   USDC_ARBITRUM,
   USDC_ARBITRUM_GOERLI,
@@ -58,6 +59,7 @@ import {
   USDC_XLAYER,
   USDC_ZKSYNC,
   USDC_ZORA,
+  USDTEST_DOMA_SEPOLIA,
   USDT_ARBITRUM,
   USDT_BNB,
   USDT_GOERLI,
@@ -139,6 +141,8 @@ export const usdGasTokensByChain: { [chainId in ChainId]?: Token[] } = {
   [ChainId.UNICHAIN]: [DAI_UNICHAIN, USDC_UNICHAIN],
   [ChainId.SONEIUM]: [USDC_SONEIUM],
   [ChainId.XLAYER]: [USDC_XLAYER],
+  [ChainId.DOMA_SEPOLIA]: [USDTEST_DOMA_SEPOLIA],
+  [ChainId.DOMA]: [USDCE_DOMA],
 };
 
 export type L1ToL2GasCosts = {

@@ -34,6 +34,8 @@ export const SUPPORTED_CHAINS: ChainId[] = [
   ChainId.BASE_SEPOLIA,
   ChainId.SONEIUM,
   ChainId.XLAYER,
+  ChainId.DOMA_SEPOLIA,
+  ChainId.DOMA,
   // Gnosis and Moonbeam don't yet have contracts deployed yet
 ];
 
@@ -112,6 +114,8 @@ export const HAS_L1_FEE = [
   ChainId.UNICHAIN,
   ChainId.SONEIUM,
   ChainId.XLAYER,
+  ChainId.DOMA_SEPOLIA,
+  ChainId.DOMA,
 ];
 
 export const NETWORKS_WITH_SAME_UNISWAP_ADDRESSES = [
@@ -185,6 +189,10 @@ export const ID_TO_CHAIN_ID = (id: number): ChainId => {
       return ChainId.SONEIUM;
     case 196:
       return ChainId.XLAYER;
+    case 97476:
+      return ChainId.DOMA_SEPOLIA;
+    case 97477:
+      return ChainId.DOMA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -221,6 +229,8 @@ export enum ChainName {
   SONEIUM = 'soneium-mainnet',
   MONAD = 'monad-mainnet',
   XLAYER = 'xlayer-mainnet',
+  DOMA_SEPOLIA = 'doma-sepolia',
+  DOMA = 'doma-mainnet',
 }
 
 export enum NativeCurrencyName {
@@ -357,6 +367,16 @@ export const NATIVE_NAMES_BY_ID: { [chainId: number]: string[] } = {
     'OKB',
     '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
   ],
+  [ChainId.DOMA_SEPOLIA]: [
+    'ETH',
+    'ETHER',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
+  [ChainId.DOMA]: [
+    'ETH',
+    'ETHER',
+    '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+  ],
 };
 
 export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
@@ -389,6 +409,8 @@ export const NATIVE_CURRENCY: { [chainId: number]: NativeCurrencyName } = {
   [ChainId.UNICHAIN]: NativeCurrencyName.ETHER,
   [ChainId.SONEIUM]: NativeCurrencyName.ETHER,
   [ChainId.XLAYER]: NativeCurrencyName.XLAYER,
+  [ChainId.DOMA_SEPOLIA]: NativeCurrencyName.ETHER,
+  [ChainId.DOMA]: NativeCurrencyName.ETHER,
 };
 
 export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
@@ -453,6 +475,10 @@ export const ID_TO_NETWORK_NAME = (id: number): ChainName => {
       return ChainName.SONEIUM;
     case 196:
       return ChainName.XLAYER;
+    case 97476:
+      return ChainName.DOMA_SEPOLIA;
+    case 97477:
+      return ChainName.DOMA;
     default:
       throw new Error(`Unknown chain id: ${id}`);
   }
@@ -518,6 +544,10 @@ export const ID_TO_PROVIDER = (id: ChainId): string => {
       return process.env.JSON_RPC_PROVIDER_SONEIUM!;
     case ChainId.XLAYER:
       return process.env.JSON_RPC_PROVIDER_XLAYER!;
+    case ChainId.DOMA_SEPOLIA:
+      return process.env.JSON_RPC_PROVIDER_DOMA_SEPOLIA!;
+    case ChainId.DOMA:
+      return process.env.JSON_RPC_PROVIDER_DOMA!;
     default:
       throw new Error(`Chain id: ${id} not supported`);
   }
@@ -749,6 +779,20 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId in ChainId]: Token } = {
     18,
     'WOKB',
     'Wrapped OKB'
+  ),
+  [ChainId.DOMA_SEPOLIA]: new Token(
+    ChainId.DOMA_SEPOLIA,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.DOMA]: new Token(
+    ChainId.DOMA,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
   ),
 };
 
