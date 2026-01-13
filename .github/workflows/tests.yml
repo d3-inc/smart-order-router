@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@50fbc622fc4ef5163becd7fab6573eac35f8462e # v1
       - uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
-          node-version: 18.x
+          node-version: 20
           registry-url: https://registry.npmjs.org
 
       - uses: actions/cache@6f8efc29b200d32929f49075959781ed54ec270c # v3
