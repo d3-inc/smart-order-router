@@ -10,8 +10,9 @@ jobs:
   unit-tests:
     name: Unit Tests
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: read
+      packages: read
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -19,7 +20,8 @@ jobs:
       - uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
           node-version: 20
-          registry-url: https://registry.npmjs.org
+          registry-url: https://npm.pkg.github.com
+          scope: '@d3-inc'
 
       - uses: actions/cache@6f8efc29b200d32929f49075959781ed54ec270c # v3
         with:
@@ -30,6 +32,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install --ignore-scripts
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # This is required separately from yarn test because it generates the typechain definitions
       - name: Compile
