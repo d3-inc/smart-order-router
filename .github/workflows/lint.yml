@@ -12,9 +12,8 @@ jobs:
   run-linters:
     name: Run linters 2
     runs-on: ubuntu-latest
-    env:
-      NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
     permissions:
+      contents: read
       packages: read
 
     steps:
@@ -44,6 +43,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run linter
         run: npm run fix:lint
