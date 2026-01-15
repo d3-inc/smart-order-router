@@ -59,6 +59,8 @@ export const V3_CORE_FACTORY_ADDRESSES: AddressMap = {
   [ChainId.SONEIUM]:
     CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].v3CoreFactoryAddress,
   [ChainId.XLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.XLAYER].v3CoreFactoryAddress,
+  [ChainId.DOMA_SEPOLIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA_SEPOLIA].v3CoreFactoryAddress,
+  [ChainId.DOMA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA].v3CoreFactoryAddress,
 };
 
 export const QUOTER_V2_ADDRESSES: AddressMap = {
@@ -96,6 +98,8 @@ export const QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.UNICHAIN]: CHAIN_TO_ADDRESSES_MAP[ChainId.UNICHAIN].quoterAddress,
   [ChainId.SONEIUM]: CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].quoterAddress,
   [ChainId.XLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.XLAYER].quoterAddress,
+  [ChainId.DOMA_SEPOLIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA_SEPOLIA].quoterAddress,
+  [ChainId.DOMA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA].quoterAddress,
 };
 
 export const NEW_QUOTER_V2_ADDRESSES: AddressMap = {
@@ -124,6 +128,8 @@ export const NEW_QUOTER_V2_ADDRESSES: AddressMap = {
   [ChainId.UNICHAIN]: CHAIN_TO_ADDRESSES_MAP[ChainId.UNICHAIN].quoterAddress, // TODO: deploy view-only-quoter to unichain
   [ChainId.SONEIUM]: CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].quoterAddress,
   [ChainId.XLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.XLAYER].quoterAddress,
+  [ChainId.DOMA_SEPOLIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA_SEPOLIA].quoterAddress,
+  [ChainId.DOMA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA].quoterAddress,
 };
 
 export const PROTOCOL_V4_QUOTER_ADDRESSES: AddressMap = {
@@ -224,6 +230,8 @@ export const UNISWAP_MULTICALL_ADDRESSES: AddressMap = {
   [ChainId.UNICHAIN]: CHAIN_TO_ADDRESSES_MAP[ChainId.UNICHAIN].multicallAddress,
   [ChainId.SONEIUM]: CHAIN_TO_ADDRESSES_MAP[ChainId.SONEIUM].multicallAddress,
   [ChainId.XLAYER]: CHAIN_TO_ADDRESSES_MAP[ChainId.XLAYER].multicallAddress,
+  [ChainId.DOMA_SEPOLIA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA_SEPOLIA].multicallAddress,
+  [ChainId.DOMA]: CHAIN_TO_ADDRESSES_MAP[ChainId.DOMA].multicallAddress,
 };
 
 export const SWAP_ROUTER_02_ADDRESSES = (chainId: number): string => {
@@ -345,6 +353,8 @@ export const WETH9: {
   [ChainId.UNICHAIN]: WETH9_HELPER[ChainId.UNICHAIN]!,
   [ChainId.SONEIUM]: WETH9_HELPER[ChainId.SONEIUM]!,
   [ChainId.XLAYER]: WETH9_HELPER[ChainId.XLAYER]!,
+  [ChainId.DOMA_SEPOLIA]: WETH9_HELPER[ChainId.DOMA_SEPOLIA]!,
+  [ChainId.DOMA]: WETH9_HELPER[ChainId.DOMA]!,
 };
 
 export const BEACON_CHAIN_DEPOSIT_ADDRESS =

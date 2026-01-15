@@ -12,6 +12,9 @@ jobs:
   run-linters:
     name: Run linters 2
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
 
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
@@ -24,7 +27,7 @@ jobs:
           # By default, only domains required for essential operations of Github Actions and uploading job summaries are allowed.
           # Refer to https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#communication-requirements-for-github-hosted-runners-and-github for additional domains that should be allowed for additional Github Actions features.
           #allowed-domains:
-      
+
           # The egress policy to enforce. Valid values are `audit` and `block`.
           # Default: audit
           egress-policy: audit
@@ -34,11 +37,14 @@ jobs:
       - name: Set up node
         uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
-          node-version: 16.x
-          registry-url: https://registry.npmjs.org
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@d3-inc'
 
       - name: Install dependencies
         run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run linter
         run: npm run fix:lint
