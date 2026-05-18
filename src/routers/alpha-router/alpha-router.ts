@@ -915,21 +915,21 @@ export class AlphaRouter
             DEFAULT_RETRY_OPTIONS,
              (_) => {
               return {
-                multicallChunk: 10,
-                gasLimitPerCall: 5_000_000,
+                multicallChunk: 5,
+                gasLimitPerCall: 10_000_000,
                 quoteMinSuccessRate: 0.1,
               };
             },
             (_) => {
               return {
-                gasLimitOverride: 5_000_000,
-                multicallChunk: 5,
+                gasLimitOverride: 15_000_000,
+                multicallChunk: 3,
               };
             },
             (_) => {
               return {
-                gasLimitOverride: 6_250_000,
-                multicallChunk: 4,
+                gasLimitOverride: 15_000_000,
+                multicallChunk: 3,
               };
             }
           );
