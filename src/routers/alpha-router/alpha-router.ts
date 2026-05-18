@@ -922,14 +922,14 @@ export class AlphaRouter
             },
             (_) => {
               return {
-                gasLimitOverride: 15_000_000,
-                multicallChunk: 3,
+                gasLimitOverride: 10_000_000,
+                multicallChunk: 4,
               };
             },
             (_) => {
               return {
-                gasLimitOverride: 15_000_000,
-                multicallChunk: 3,
+                gasLimitOverride: 50_000_000,
+                multicallChunk: 1,
               };
             }
           );
