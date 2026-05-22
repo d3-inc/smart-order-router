@@ -91,7 +91,7 @@
     "eslint-plugin-import": "^2.22.0",
     "hardhat": "^2.22.15",
     "husky": "^9.1.5",
-    "jest": "^27.0.6",
+    "jest": "^30.4.2",
     "jest-circus": "^27.5.1",
     "jest-environment-hardhat": "^1.1.8",
     "jest-expect-message": "^1.0.2",
