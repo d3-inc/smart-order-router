@@ -19,22 +19,18 @@ jobs:
     steps:
       - uses: bullfrogsec/bullfrog@dcde5841b19b7ef693224207a7fdec67fce604db # v0.8.3
         with:
-          # List of IPs to allow outbound connections to.
-          # By default, only localhost and IPs required for the essential operations of Github Actions are allowed.
-          #allowed-ips: |
-          # List of domains to allow outbound connections to.
-          # Wildcards are accepted. For example, if allowing `*.google.com`, this will allow `www.google.com`, `console.cloud.google.com` but not `google.com`.
-          # By default, only domains required for essential operations of Github Actions and uploading job summaries are allowed.
-          # Refer to https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners#communication-requirements-for-github-hosted-runners-and-github for additional domains that should be allowed for additional Github Actions features.
-          #allowed-domains:
-
-          # The egress policy to enforce. Valid values are `audit` and `block`.
-          # Default: audit
           egress-policy: audit
+
       - name: Check out Git repository
+        # NOTE: actions/checkout@v2 (pinned SHA) runs on the Node12 runtime,
+        # which GitHub deprecated and will eventually remove.  Upgrading to v4
+        # is tracked as a follow-up; the SHA pin is left as-is here to avoid
+        # an unreviewed action update in the same PR as the lint-mode fix.
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
       - name: Set up node
+        # NOTE: actions/setup-node@v1 (pinned SHA) also runs on Node12.
+        # Same follow-up applies.
         uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
           node-version: 20
@@ -47,7 +43,19 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run linter
-        run: npm run fix:lint
+        # Was `npm run fix:lint`, which calls `eslint src --ext .ts --fix`.
+        # Running a mutating linter as a CI gate with only `contents: read` is
+        # a no-op: ESLint rewrites source files on every PR but the runner has
+        # no permission to commit them, so the tree is dirtied and the changes
+        # are silently discarded.  The gate never actually fails on a lint
+        # error; it just passes after quietly mangling the working tree.
+        # Check mode (`--no-fix`) reports violations as non-zero exit status
+        # so the job fails when the code is actually wrong.
+        run: npx eslint src --ext .ts --no-fix
 
       - name: Run Prettier
-        run: npm run fix:prettier
+        # Was `npm run fix:prettier`, which calls `prettier --write`.
+        # Same problem: --write mutates files that are never committed.
+        # `--check` exits non-zero when formatting differs, which is the
+        # behavior a CI gate needs.
+        run: npx prettier --check "src/**/*.ts"
